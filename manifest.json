@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "UTC Converter",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "UTC Converter",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  }
+}

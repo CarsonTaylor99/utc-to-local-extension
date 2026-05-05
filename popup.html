@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UTC Converter</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="title">
+          <div class="title-main">UTC Converter</div>
+          <div class="title-sub">Offset → your local time</div>
+        </div>
+
+        <button id="toggleRef" class="icon-btn" aria-expanded="false" aria-controls="refPanel">
+          <span class="icon">☰</span>
+          <span class="icon-label">UTC Quick Reference</span>
+        </button>
+      </header>
+
+      <!-- Side panel -->
+      <aside id="refPanel" class="ref-panel" aria-hidden="true">
+        <div class="ref-header">
+          <div class="ref-title">UTC Quick Reference</div>
+          <button id="closeRef" class="icon-btn small" aria-label="Close">
+            ✕
+          </button>
+        </div>
+
+        <div class="ref-search">
+          <input
+            id="refSearch"
+            class="input"
+            type="text"
+            placeholder="Search: Japan, UK, India, California…"
+            autocomplete="off"
+          />
+        </div>
+
+        <div id="refList" class="ref-list" role="list"></div>
+      </aside>
+
+      <main class="card">
+        <div class="row">
+          <label class="label" for="offsetSelect">Offset</label>
+          <select id="offsetSelect" class="select" aria-label="UTC Offset"></select>
+        </div>
+
+        <div class="row">
+          <label class="label" for="timeInput">Time (24h)</label>
+          <input
+            id="timeInput"
+            class="input"
+            type="text"
+            inputmode="numeric"
+            placeholder="e.g. 1:30 or 13:05 or 23:59:45"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <div class="hint">Formats: H:MM, HH:MM, H:MM:SS, HH:MM:SS</div>
+        </div>
+
+        <div class="row">
+          <label class="label" for="dateInput">Date (optional)</label>
+          <input id="dateInput" class="input" type="date" />
+          <div class="hint">If blank, we’ll use the current date in the chosen UTC offset.</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="output">
+          <div class="output-label">Your local time</div>
+          <div id="outputBox" class="output-box">
+            <div class="output-time" id="outputTime">—</div>
+            <div class="output-meta" id="outputMeta">Enter a time to convert.</div>
+          </div>
+
+          <div id="errorBox" class="error" role="alert" aria-live="polite"></div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="foot-left">
+          <span class="pill" id="localTzPill">Local: —</span>
+          <span class="pill" id="dstPill">DST: —</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
